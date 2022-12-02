@@ -1,4 +1,8 @@
-﻿namespace PuzzleSolutions
+﻿using PuzzleSolutions.Enums;
+using PuzzleSolutions.Puzzles;
+using PuzzleSolutions.UserIO;
+
+namespace PuzzleSolutions
 {
 	using Microsoft.Extensions.Hosting;
 	using Microsoft.Extensions.DependencyInjection;
@@ -12,9 +16,9 @@
 			{
 				using (var serviceScope = host.Services.CreateScope())
 				{
-					var serviceProvider = serviceScope.ServiceProvider;
-					IDayOneSecondChallenge dayOneSecondChallenge = serviceProvider.GetService<IDayOneSecondChallenge>()!;
-					await dayOneSecondChallenge.SolvePuzzle();
+					IServiceProvider serviceProvider = serviceScope.ServiceProvider;
+					IDisplaySolution displaySolution = serviceProvider.GetService<IDisplaySolution>()!;
+					await displaySolution.Display();
 				}
 			};
 		}

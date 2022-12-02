@@ -4,6 +4,8 @@
 	using Data;
 	using Puzzles.Day1;
 	using Utilities.Logging;
+	using Puzzles;
+	using UserIO;
 
 	internal static class DependencyInstaller
 	{
@@ -18,6 +20,8 @@
 			serviceCollection.AddSingleton<ILogger, Logger>();
 			serviceCollection.AddSingleton<IDataConverter, DataConverter>();
 			serviceCollection.AddSingleton<ISourceDataService, SourceDataService>();
+			serviceCollection.AddSingleton<IUserInputProvider, UserInputProvider>();
+			serviceCollection.AddSingleton<IDisplaySolution, DisplaySolution>();
 		}
 
 		private static void InstallDayOne(IServiceCollection serviceCollection)
