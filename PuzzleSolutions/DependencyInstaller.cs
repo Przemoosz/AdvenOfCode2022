@@ -24,6 +24,7 @@
 		{
 			serviceCollection.AddSingleton<IDayOneFirstChallenge, DayOneFirstChallenge>(); 
 			serviceCollection.AddSingleton<ICaloriesDivider, CaloriesDivider>();
+			serviceCollection.AddSingleton<IDayOneSecondChallenge, DayOneSecondChallenge>();
 		}
 	}
 }

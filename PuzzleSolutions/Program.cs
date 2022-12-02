@@ -13,8 +13,8 @@
 				using (var serviceScope = host.Services.CreateScope())
 				{
 					var serviceProvider = serviceScope.ServiceProvider;
-					IDayOneFirstChallenge sourceDataService = serviceProvider.GetService<IDayOneFirstChallenge>()!;
-					await sourceDataService.SolvePuzzle();
+					IDayOneSecondChallenge dayOneSecondChallenge = serviceProvider.GetService<IDayOneSecondChallenge>()!;
+					await dayOneSecondChallenge.SolvePuzzle();
 				}
 			};
 		}
