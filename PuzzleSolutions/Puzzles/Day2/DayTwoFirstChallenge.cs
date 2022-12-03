@@ -1,11 +1,10 @@
-﻿using PuzzleSolutions.Data;
-using PuzzleSolutions.Puzzles.Day2.Objects;
-using PuzzleSolutions.Puzzles.Day2.RuleEngine;
-using PuzzleSolutions.Utilities;
-using PuzzleSolutions.Utilities.Logging;
-
-namespace PuzzleSolutions.Puzzles.Day2
+﻿namespace PuzzleSolutions.Puzzles.Day2
 {
+	using Data;
+	using Objects;
+	using RuleEngine;
+	using Utilities;
+	using Utilities.Logging;
 	internal class DayTwoFirstChallenge : IDayTwoFirstChallenge
 	{
 		private readonly ISourceDataService _sourceDataService;

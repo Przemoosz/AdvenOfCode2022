@@ -1,11 +1,10 @@
-﻿using PuzzleSolutions.Data;
-using PuzzleSolutions.Puzzles.Day2.Objects;
-using PuzzleSolutions.Puzzles.Day2.RuleEngine;
-using PuzzleSolutions.Utilities;
-using PuzzleSolutions.Utilities.Logging;
-
-namespace PuzzleSolutions.Puzzles.Day2
+﻿namespace PuzzleSolutions.Puzzles.Day2
 {
+	using Data;
+	using Objects;
+	using RuleEngine;
+	using Utilities;
+	using Utilities.Logging;
 	internal class DayTwoSecondChallenge: IDayTwoSecondChallenge
 	{
 		private readonly ISourceDataService _sourceDataService;
@@ -23,13 +22,23 @@ namespace PuzzleSolutions.Puzzles.Day2
 		public async Task SolvePuzzle()
 		{
 			int totalPoints = 0;
+			List<SecondChallengeRoundMoves> movesList = new List<SecondChallengeRoundMoves>();
 			var gameRounds = await _sourceDataService.GetPuzzleInputAsSeparateLines(PuzzleInputDataPaths.InputFileName(2, 1));
+			_gameRuleEngine.SetCheatRules();
 			foreach (var round in gameRounds)
 			{
 				var moves = _moveConverter.Convert(round);
-				var c = (SecondChallengeRoundMoves) moves;
-				//var result = _gameRuleEngine.CalculateResult(moves);
-				//totalPoints += result;
+				//var c = moves;
+				_gameRuleEngine.CheatResult(moves);
+				moves.ShouldCalculateResult = true;
+				movesList.Add(moves);
+			}
+
+			_gameRuleEngine.SetWiningRules();
+			foreach (var move in movesList)
+			{
+				var result = _gameRuleEngine.CalculateResult(move);
+				totalPoints += result;
 			}
 			_logger.LogSuccess($"Total points {totalPoints}");
 		}
