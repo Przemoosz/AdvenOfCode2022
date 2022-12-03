@@ -1,4 +1,7 @@
-﻿namespace PuzzleSolutions
+﻿using PuzzleSolutions.Puzzles.Day2;
+using PuzzleSolutions.Puzzles.Day2.RuleEngine;
+
+namespace PuzzleSolutions
 {
 	using Microsoft.Extensions.DependencyInjection;
 	using Data;
@@ -13,6 +16,7 @@
 		{
 			InstallSharedServices(serviceCollection);
 			InstallDayOne(serviceCollection);
+			InstallDayTwo(serviceCollection);
 		}
 
 		private static void InstallSharedServices(IServiceCollection serviceCollection)
@@ -29,6 +33,14 @@
 			serviceCollection.AddSingleton<IDayOneFirstChallenge, DayOneFirstChallenge>(); 
 			serviceCollection.AddSingleton<ICaloriesDivider, CaloriesDivider>();
 			serviceCollection.AddSingleton<IDayOneSecondChallenge, DayOneSecondChallenge>();
+		}
+
+		private static void InstallDayTwo(IServiceCollection serviceCollection)
+		{
+			serviceCollection.AddScoped(typeof(IGameRuleEngine<>), typeof(GameRuleEngine<>));
+			serviceCollection.AddScoped(typeof(IMoveConverter<>), typeof(MoveConverter<>));
+			serviceCollection.AddSingleton<IDayTwoFirstChallenge, DayTwoFirstChallenge>();
+			serviceCollection.AddSingleton<IDayTwoSecondChallenge, DayTwoSecondChallenge>();
 		}
 	}
 }

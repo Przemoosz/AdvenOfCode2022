@@ -4,19 +4,24 @@
 	using Day1;
 	using UserIO;
 	using Utilities.Logging;
-
+	using Day2;
 	internal class DisplaySolution: IDisplaySolution
 	{
 		private readonly IUserInputProvider _userInputProvider;
 		private readonly IDayOneFirstChallenge _dayOneFirstChallenge;
 		private readonly IDayOneSecondChallenge _dayOneSecondChallenge;
+		private readonly IDayTwoFirstChallenge _dayTwoFirstChallenge;
+		private readonly IDayTwoSecondChallenge _dayTwoSecondChallenge;
 		private readonly ILogger _logger;
 
-		public DisplaySolution(IUserInputProvider userInputProvider, IDayOneFirstChallenge dayOneFirstChallenge, IDayOneSecondChallenge dayOneSecondChallenge, ILogger logger)
+		public DisplaySolution(IUserInputProvider userInputProvider, IDayOneFirstChallenge dayOneFirstChallenge,
+			IDayOneSecondChallenge dayOneSecondChallenge, IDayTwoFirstChallenge dayTwoFirstChallenge, IDayTwoSecondChallenge dayTwoSecondChallenge, ILogger logger)
 		{
 			_userInputProvider = userInputProvider;
 			_dayOneFirstChallenge = dayOneFirstChallenge;
 			_dayOneSecondChallenge = dayOneSecondChallenge;
+			_dayTwoFirstChallenge = dayTwoFirstChallenge;
+			_dayTwoSecondChallenge = dayTwoSecondChallenge;
 			_logger = logger;
 		}
 
@@ -34,6 +39,18 @@
 					selectedPuzzleSolution.Challenge == Challenge.Second:
 				{
 					await _dayOneSecondChallenge.SolvePuzzle();
+					break;
+				}
+				case Days.DayTwo when
+					selectedPuzzleSolution.Challenge == Challenge.First:
+				{
+					await _dayTwoFirstChallenge.SolvePuzzle();
+					break;
+				}
+				case Days.DayTwo when
+					selectedPuzzleSolution.Challenge == Challenge.Second:
+				{
+					await _dayTwoSecondChallenge.SolvePuzzle();
 					break;
 				}
 				default:

@@ -1,8 +1,8 @@
 ﻿namespace PuzzleSolutions.Data.Dto
 {
-    internal class ConvertedDataDto<T> : IConvertedDataDto<T> where T : struct
+    internal class ConvertedStructDto<T> : IConvertedStructDto<T> where T : struct
     {
-        public ConvertedDataDto(T data, bool isConverted)
+        public ConvertedStructDto(T data, bool isConverted)
         {
             Value = data;
             IsConverted = isConverted;

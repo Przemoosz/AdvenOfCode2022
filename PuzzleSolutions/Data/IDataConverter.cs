@@ -3,6 +3,6 @@
 	using Dto;
 	internal interface IDataConverter
 	{
-		public IConvertedDataDto<int> ConvertToInt32(string data);
+		public IConvertedStructDto<int> ConvertToInt32(string value);
 	}
 }
