@@ -1,3 +1,5 @@
 .vs
 PuzzleSolutions/bin
 PuzzleSolutions/obj
+PuzzleSolutions.UnitTests/bin
+PuzzleSolutions.UnitTests/obj
