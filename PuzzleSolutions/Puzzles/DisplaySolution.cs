@@ -1,10 +1,12 @@
 ﻿namespace PuzzleSolutions.Puzzles
 {
-	using Enums;
-	using Day1;
 	using UserIO;
 	using Utilities.Logging;
+	using Enums;
+	using Day1;
 	using Day2;
+	using Day3;
+
 	internal class DisplaySolution: IDisplaySolution
 	{
 		private readonly IUserInputProvider _userInputProvider;
@@ -12,16 +14,19 @@
 		private readonly IDayOneSecondChallenge _dayOneSecondChallenge;
 		private readonly IDayTwoFirstChallenge _dayTwoFirstChallenge;
 		private readonly IDayTwoSecondChallenge _dayTwoSecondChallenge;
+		private readonly IDayThreeFirstChallenge _dayThreeFirstChallenge;
 		private readonly ILogger _logger;
 
 		public DisplaySolution(IUserInputProvider userInputProvider, IDayOneFirstChallenge dayOneFirstChallenge,
-			IDayOneSecondChallenge dayOneSecondChallenge, IDayTwoFirstChallenge dayTwoFirstChallenge, IDayTwoSecondChallenge dayTwoSecondChallenge, ILogger logger)
+			IDayOneSecondChallenge dayOneSecondChallenge, IDayTwoFirstChallenge dayTwoFirstChallenge,
+			IDayTwoSecondChallenge dayTwoSecondChallenge, IDayThreeFirstChallenge dayThreeFirstChallenge ,ILogger logger)
 		{
 			_userInputProvider = userInputProvider;
 			_dayOneFirstChallenge = dayOneFirstChallenge;
 			_dayOneSecondChallenge = dayOneSecondChallenge;
 			_dayTwoFirstChallenge = dayTwoFirstChallenge;
 			_dayTwoSecondChallenge = dayTwoSecondChallenge;
+			_dayThreeFirstChallenge = dayThreeFirstChallenge;
 			_logger = logger;
 		}
 
@@ -53,6 +58,13 @@
 					await _dayTwoSecondChallenge.SolvePuzzle();
 					break;
 				}
+				case Days.DayThree when
+					selectedPuzzleSolution.Challenge == Challenge.First:
+				{
+					await _dayThreeFirstChallenge.SolvePuzzle();
+					break;
+				}
+
 				default:
 				{
 					_logger.LogWarning("No solution for this day and this challenge");
