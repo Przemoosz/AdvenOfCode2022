@@ -1,4 +1,4 @@
-﻿namespace PuzzleSolutions.Puzzles.Shared;
+﻿namespace PuzzleSolutions.Puzzles.Shared.Interfaces;
 
 internal interface IPuzzleSolution
 {

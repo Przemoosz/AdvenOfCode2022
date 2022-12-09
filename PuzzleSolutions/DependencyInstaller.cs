@@ -47,8 +47,10 @@
 		private static void InstallDayThree(IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddSingleton<IDayThreeFirstChallenge, DayThreeFirstChallenge>();
+			serviceCollection.AddSingleton<IDayThreeSecondChallenge, DayThreeSecondChallenge>();
 			serviceCollection.AddSingleton<IPrioritiesCalculator, PrioritiesCalculator>();
 			serviceCollection.AddSingleton<IRucksackSorter, RucksackSorter>();
+			serviceCollection.AddSingleton<ITripleRucksackSorter, TripleRucksackSorter>();
 		}
 	}
 }
