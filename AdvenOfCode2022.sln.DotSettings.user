@@ -2,5 +2,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1e17fad3_002D53a5_002D481b_002Dbf95_002De620e0b7a86e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShouldDecodeInput" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::7E8822ED-E2A4-4450-9689-11EFCA73A1DB::net7.0::PuzzleSolutions.UnitTests.Puzzles.Day2.MoveConverterTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::7E8822ED-E2A4-4450-9689-11EFCA73A1DB::net7.0::PuzzleSolutions.UnitTests.Puzzles.Day3.Priorities.PrioritiesCalculatorTests.ShouldCalculatePriority&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::7E8822ED-E2A4-4450-9689-11EFCA73A1DB::net7.0::PuzzleSolutions.UnitTests.Puzzles.Day4.Comparsion.SectionCompareTests.ShouldReturnTrueForSectionOverlap&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::7E8822ED-E2A4-4450-9689-11EFCA73A1DB::net7.0::PuzzleSolutions.UnitTests.Puzzles.Day4.Comparsion.SectionCompareTests.ShouldReturnFalseForSectionThatDoesNotOverlap&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

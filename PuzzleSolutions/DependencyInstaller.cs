@@ -6,6 +6,9 @@
 	using Utilities.Logging;
 	using Puzzles;
 	using UserIO;
+	using Puzzles.Day4;
+	using Puzzles.Day4.Comparison;
+	using Puzzles.Day4.Factories;
 	using Puzzles.Day2;
 	using Puzzles.Day2.RuleEngine;
 	using Puzzles.Day3;
@@ -18,6 +21,7 @@
 			InstallDayOne(serviceCollection);
 			InstallDayTwo(serviceCollection);
 			InstallDayThree(serviceCollection);
+			InstallDayFour(serviceCollection);
 		}
 
 		private static void InstallSharedServices(IServiceCollection serviceCollection)
@@ -51,6 +55,13 @@
 			serviceCollection.AddSingleton<IPrioritiesCalculator, PrioritiesCalculator>();
 			serviceCollection.AddSingleton<IRucksackSorter, RucksackSorter>();
 			serviceCollection.AddSingleton<ITripleRucksackSorter, TripleRucksackSorter>();
+		}
+
+		private static void InstallDayFour(IServiceCollection serviceCollection)
+		{
+			serviceCollection.AddSingleton<IDayFourFirstChallenge, DayFourFirstChallenge>();
+			serviceCollection.AddSingleton<ISectionComparer, SectionComparer>();
+			serviceCollection.AddSingleton<ISectionFactory, SectionFactory>();
 		}
 	}
 }
