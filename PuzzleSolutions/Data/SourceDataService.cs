@@ -68,5 +68,30 @@
 			}
 			return groupedByThreeLines;
 		}
+
+		public async Task<IEnumerable<DoubleInput<string>>> GetPuzzleInputGroupedByTwoLines(string fileName)
+		{
+			Guard.NotNullOrEmpty<FileNameException>(fileName, "Filename can not be null or empty string!");
+			var filePath = Path.Combine(PuzzleInputDataPaths.MyDocumentsDirectory, PuzzleInputDataPaths.InputDataDirectory, fileName);
+			List<DoubleInput<string>> groupedByThreeLines = new List<DoubleInput<string>>();
+			await using (var fileStream = new FileStream(filePath, FileMode.Open))
+			{
+				using (var streamReader = new StreamReader(fileStream))
+				{
+					while (!streamReader.EndOfStream)
+					{
+						var firstLine = await streamReader.ReadLineAsync();
+						var secondLine = await streamReader.ReadLineAsync();
+						if (firstLine is null || secondLine is null)
+						{
+							continue;
+						}
+						DoubleInput<string> tripleInput = new DoubleInput<string>(firstLine, secondLine);
+						groupedByThreeLines.Add(tripleInput);
+					}
+				}
+			}
+			return groupedByThreeLines;
+		}
 	}
 }
