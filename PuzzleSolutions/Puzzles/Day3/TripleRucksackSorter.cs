@@ -31,9 +31,4 @@
 			return letters;
 		}
 	}
-
-	internal interface ITripleRucksackSorter
-	{
-		Dictionary<char, int> Sort(TripleInput<string> tripleInput);
-	}
 }
