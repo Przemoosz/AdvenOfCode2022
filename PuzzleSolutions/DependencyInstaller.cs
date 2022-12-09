@@ -1,7 +1,4 @@
-﻿using PuzzleSolutions.Puzzles.Day2;
-using PuzzleSolutions.Puzzles.Day2.RuleEngine;
-
-namespace PuzzleSolutions
+﻿namespace PuzzleSolutions
 {
 	using Microsoft.Extensions.DependencyInjection;
 	using Data;
@@ -9,7 +6,10 @@ namespace PuzzleSolutions
 	using Utilities.Logging;
 	using Puzzles;
 	using UserIO;
-
+	using Puzzles.Day2;
+	using Puzzles.Day2.RuleEngine;
+	using Puzzles.Day3;
+	using Puzzles.Day3.Priorities;
 	internal static class DependencyInstaller
 	{
 		public static void Install(IServiceCollection serviceCollection)
@@ -17,6 +17,7 @@ namespace PuzzleSolutions
 			InstallSharedServices(serviceCollection);
 			InstallDayOne(serviceCollection);
 			InstallDayTwo(serviceCollection);
+			InstallDayThree(serviceCollection);
 		}
 
 		private static void InstallSharedServices(IServiceCollection serviceCollection)
@@ -41,6 +42,13 @@ namespace PuzzleSolutions
 			serviceCollection.AddScoped(typeof(IMoveConverter<>), typeof(MoveConverter<>));
 			serviceCollection.AddSingleton<IDayTwoFirstChallenge, DayTwoFirstChallenge>();
 			serviceCollection.AddSingleton<IDayTwoSecondChallenge, DayTwoSecondChallenge>();
+		}
+
+		private static void InstallDayThree(IServiceCollection serviceCollection)
+		{
+			serviceCollection.AddSingleton<IDayThreeFirstChallenge, DayThreeFirstChallenge>();
+			serviceCollection.AddSingleton<IPrioritiesCalculator, PrioritiesCalculator>();
+			serviceCollection.AddSingleton<IRucksackSorter, RucksackSorter>();
 		}
 	}
 }
