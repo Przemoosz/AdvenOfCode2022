@@ -2,6 +2,6 @@
 
 namespace PuzzleSolutions.Puzzles.Day4;
 
-internal interface IDayFourFirstChallenge: IPuzzleSolution
+internal interface IDayFourSecondChallenge:IPuzzleSolution
 {
 }

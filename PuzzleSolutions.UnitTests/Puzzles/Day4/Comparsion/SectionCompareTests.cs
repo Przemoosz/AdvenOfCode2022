@@ -29,7 +29,7 @@ namespace PuzzleSolutions.UnitTests.Puzzles.Day4.Comparsion
 			var secondSection = new Section(secondSectionStart, secondSectionEnd);
 
 			// Act
-			var actual = _uut.CheckSectionForOverlap(firstSection, secondSection);
+			var actual = _uut.CheckSectionForFullyOverlap(firstSection, secondSection);
 
 			// Assert
 			actual.Should().BeTrue();
@@ -46,7 +46,7 @@ namespace PuzzleSolutions.UnitTests.Puzzles.Day4.Comparsion
 			var secondSection = new Section(secondSectionStart, secondSectionEnd);
 
 			// Act
-			var actual = _uut.CheckSectionForOverlap(firstSection, secondSection);
+			var actual = _uut.CheckSectionForFullyOverlap(firstSection, secondSection);
 
 			// Assert
 			actual.Should().BeFalse();
