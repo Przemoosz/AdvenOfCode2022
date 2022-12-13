@@ -1,20 +1,20 @@
-﻿using PuzzleSolutions.Data;
-using PuzzleSolutions.Puzzles.Day4.Comparison;
-using PuzzleSolutions.Puzzles.Day4.Factories;
-using PuzzleSolutions.Puzzles.Day4.Objects;
-using PuzzleSolutions.Utilities;
-using PuzzleSolutions.Utilities.Logging;
-
-namespace PuzzleSolutions.Puzzles.Day4
+﻿namespace PuzzleSolutions.Puzzles.Day4
 {
-    internal class DayFourFirstChallenge: IDayFourFirstChallenge
+	using Data;
+	using Comparison;
+	using Factories;
+	using Objects;
+	using Utilities;
+	using Utilities.Logging;
+	
+	internal class DayFourSecondChallenge: IDayFourSecondChallenge
 	{
 		private readonly ISourceDataService _sourceDataService;
 		private readonly ISectionFactory _sectionFactory;
 		private readonly ISectionComparer _sectionComparer;
 		private readonly ILogger _logger;
 
-		public DayFourFirstChallenge(ISourceDataService sourceDataService, ISectionFactory sectionFactory, ISectionComparer sectionComparer, ILogger logger)
+		public DayFourSecondChallenge(ISourceDataService sourceDataService, ISectionFactory sectionFactory, ISectionComparer sectionComparer, ILogger logger)
 		{
 			_sourceDataService = sourceDataService;
 			_sectionFactory = sectionFactory;
@@ -30,9 +30,16 @@ namespace PuzzleSolutions.Puzzles.Day4
 				var spitedLine = line.Split(',');
 				Section firstSection = _sectionFactory.Create(spitedLine[0]);
 				Section secondSection = _sectionFactory.Create(spitedLine[1]);
-				if (_sectionComparer.CheckSectionForFullyOverlap(firstSection, secondSection))
+				if (_sectionComparer.CheckSectionForOverlap(firstSection, secondSection))
 				{
 					totalOverlaps++;
+				}
+				else
+				{
+					if (_sectionComparer.CheckSectionForOverlap(secondSection, firstSection))
+					{
+						totalOverlaps++;
+					}
 				}
 			}
 			_logger.LogSuccess($"Total overlaps - {totalOverlaps}");

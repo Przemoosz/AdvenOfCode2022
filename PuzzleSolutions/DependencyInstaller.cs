@@ -60,6 +60,7 @@
 		private static void InstallDayFour(IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddSingleton<IDayFourFirstChallenge, DayFourFirstChallenge>();
+			serviceCollection.AddSingleton<IDayFourSecondChallenge, DayFourSecondChallenge>();
 			serviceCollection.AddSingleton<ISectionComparer, SectionComparer>();
 			serviceCollection.AddSingleton<ISectionFactory, SectionFactory>();
 		}
