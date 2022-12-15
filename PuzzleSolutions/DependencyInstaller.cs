@@ -13,6 +13,8 @@
 	using Puzzles.Day2.RuleEngine;
 	using Puzzles.Day3;
 	using Puzzles.Day3.Priorities;
+	using Puzzles.Day5;
+	using PuzzleSolutions.Puzzles.Day5.Data;
 	internal static class DependencyInstaller
 	{
 		public static void Install(IServiceCollection serviceCollection)
@@ -22,6 +24,7 @@
 			InstallDayTwo(serviceCollection);
 			InstallDayThree(serviceCollection);
 			InstallDayFour(serviceCollection);
+			InstallDayFive(serviceCollection);
 		}
 
 		private static void InstallSharedServices(IServiceCollection serviceCollection)
@@ -31,6 +34,7 @@
 			serviceCollection.AddSingleton<ISourceDataService, SourceDataService>();
 			serviceCollection.AddSingleton<IUserInputProvider, UserInputProvider>();
 			serviceCollection.AddSingleton<IDisplaySolution, DisplaySolution>();
+			serviceCollection.AddSingleton<IStreamReaderProvider, StreamReaderProvider>();
 		}
 
 		private static void InstallDayOne(IServiceCollection serviceCollection)
@@ -63,6 +67,12 @@
 			serviceCollection.AddSingleton<IDayFourSecondChallenge, DayFourSecondChallenge>();
 			serviceCollection.AddSingleton<ISectionComparer, SectionComparer>();
 			serviceCollection.AddSingleton<ISectionFactory, SectionFactory>();
+		}
+
+		private static void InstallDayFive(IServiceCollection serviceCollection)
+		{
+			serviceCollection.AddSingleton<IDayFiveFirstChallenge, DayFiveFirstChallenge>();
+			serviceCollection.AddSingleton<IDayFiveInputDataResolver, DayFiveInputDataResolver>();
 		}
 	}
 }
