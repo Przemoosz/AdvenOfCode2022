@@ -1,12 +1,9 @@
-﻿using PuzzleSolutions.Enums;
-using PuzzleSolutions.Puzzles;
-using PuzzleSolutions.UserIO;
-
-namespace PuzzleSolutions
+﻿namespace PuzzleSolutions
 {
 	using Microsoft.Extensions.Hosting;
 	using Microsoft.Extensions.DependencyInjection;
-	using Puzzles.Day1;
+	using Puzzles;
+
 	internal sealed class Program
 	{
 		public static async Task Main(string[] args)
