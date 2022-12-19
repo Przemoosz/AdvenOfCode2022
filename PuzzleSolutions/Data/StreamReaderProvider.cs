@@ -9,7 +9,7 @@
 		private FileStream? _fileStream;
 		private StreamReader? _streamReader;
 
-		public async Task<StreamReader> GetFileStreamReader(string fileName)
+		public StreamReader GetFileStreamReader(string fileName)
 		{
 			Guard.NotNullOrEmpty<FileNameException>(fileName, "Filename can not be null or empty string!");
 			var filePath = Path.Combine(PuzzleInputDataPaths.MyDocumentsDirectory, PuzzleInputDataPaths.InputDataDirectory, fileName);

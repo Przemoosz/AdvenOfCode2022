@@ -2,6 +2,6 @@
 {
 	internal sealed class ContainerStack
 	{
-		public Stack<char> Containers { get; }
+		public LinkedList<char> Containers { get; init; }
 	}
 }

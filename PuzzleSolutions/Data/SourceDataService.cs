@@ -13,14 +13,14 @@
 
 		public async Task<string> GetPuzzleInput(string fileName)
 		{
-			return await (await _streamReaderProvider.GetFileStreamReader(fileName)).ReadToEndAsync();
+			return await ( _streamReaderProvider.GetFileStreamReader(fileName)).ReadToEndAsync();
 		}
 
 		public async Task<IEnumerable<string>> GetPuzzleInputAsSeparateLines(string fileName)
 		{
 			List<string> inputLines = new List<string>();
 
-			using (var streamReader = await _streamReaderProvider.GetFileStreamReader(fileName))
+			using (var streamReader = _streamReaderProvider.GetFileStreamReader(fileName))
 			{
 				while (!streamReader.EndOfStream)
 				{
@@ -38,7 +38,7 @@
 		public async Task<IEnumerable<TripleInput<string>>> GetPuzzleInputGroupedByThreeLines(string fileName)
 		{
 			List<TripleInput<string>> groupedByThreeLines = new List<TripleInput<string>>();
-			using (var streamReader = await _streamReaderProvider.GetFileStreamReader(fileName)) 
+			using (var streamReader = _streamReaderProvider.GetFileStreamReader(fileName)) 
 			{
 				while (!streamReader.EndOfStream)
 				{
@@ -59,7 +59,7 @@
 		public async Task<IEnumerable<DoubleInput<string>>> GetPuzzleInputGroupedByTwoLines(string fileName)
 		{
 			List<DoubleInput<string>> groupedByTwoLines = new List<DoubleInput<string>>();
-			using (var streamReader = await _streamReaderProvider.GetFileStreamReader(fileName))
+			using (var streamReader = _streamReaderProvider.GetFileStreamReader(fileName))
 			{
 				while (!streamReader.EndOfStream)
 				{

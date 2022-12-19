@@ -4,5 +4,5 @@ namespace PuzzleSolutions.Puzzles.Day5.Data;
 
 internal interface IDayFiveInputDataResolver
 {
-	Task<List<ContainerStack>> ResolveInput();
+	Task<DayFiveWrappedInput> ResolveInput();
 }
