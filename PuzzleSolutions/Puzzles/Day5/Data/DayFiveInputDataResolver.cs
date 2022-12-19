@@ -6,7 +6,6 @@
 
 	internal sealed class DayFiveInputDataResolver: IDayFiveInputDataResolver
 	{
-
 		private readonly IStreamReaderProvider _streamReaderProvider;
 		private readonly IDataConverter _dataConverter;
 
@@ -33,7 +32,6 @@
 					{
 						break;
 					}
-
 					if (containers.TryGetValue(actualStackNumber, out var stack))
 					{
 						if (ValidateContainerContent(create))
@@ -64,7 +62,7 @@
 				}
 				await streamReader.ReadLineAsync(); // Skip lines with numbers
 				await streamReader.ReadLineAsync(); // Skip blank line
-													// Load moves
+				// Load moves
 				while (!streamReader.EndOfStream)
 				{
 					var line = await streamReader.ReadLineAsync();
@@ -77,11 +75,9 @@
 					}
 				}
 			}
-
 			return new DayFiveWrappedInput(containers, moves);
 		}
 
 		private bool ValidateContainerContent(char content) => content != '[' && content != ']' && content != '\n' && content != ' ';
-		
 	}
 }

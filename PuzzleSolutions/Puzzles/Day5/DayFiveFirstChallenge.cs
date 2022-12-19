@@ -24,7 +24,7 @@
 			{
 				for(int i=0; i<move.NumberOfItems; i++)
 				{
-					var container = wrappedInput.Stacks[move.From].Containers.Last.Value;
+					var container = wrappedInput.Stacks[move.From].Containers.Last!.Value;
 					wrappedInput.Stacks[move.From].Containers.RemoveLast();
 					wrappedInput.Stacks[move.To].Containers.AddLast(container);
 				}
@@ -33,8 +33,7 @@
 			StringBuilder stringBuilder = new StringBuilder();
 			for (int i = 1; i < wrappedInput.Stacks.Count+1; i++)
 			{
-				////var containers = wrappedInput.Stacks[i].Containers.ToArray();
-				stringBuilder.Append(wrappedInput.Stacks[i].Containers.First.Value);
+				stringBuilder.Append(wrappedInput.Stacks[i].Containers.Last!.Value);
 			}
 			_logger.LogSuccess(stringBuilder.ToString());
 		}
