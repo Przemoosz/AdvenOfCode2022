@@ -72,6 +72,7 @@
 		private static void InstallDayFive(IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddSingleton<IDayFiveFirstChallenge, DayFiveFirstChallenge>();
+			serviceCollection.AddSingleton<IDayFiveSecondChallenge, DayFiveSecondChallenge>();
 			serviceCollection.AddSingleton<IDayFiveInputDataResolver, DayFiveInputDataResolver>();
 		}
 	}

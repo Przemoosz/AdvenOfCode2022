@@ -21,6 +21,7 @@
 		private readonly IDayFourFirstChallenge _dayFourFirstChallenge;
 		private readonly IDayFourSecondChallenge _dayFourSecondChallenge;
 		private readonly IDayFiveFirstChallenge _dayFiveFirstChallenge;
+		private readonly IDayFiveSecondChallenge _dayFiveSecondChallenge;
 		private readonly ILogger _logger;
 
 		public DisplaySolution(IUserInputProvider userInputProvider, IDayOneFirstChallenge dayOneFirstChallenge,
@@ -28,6 +29,7 @@
 			IDayTwoSecondChallenge dayTwoSecondChallenge, IDayThreeFirstChallenge dayThreeFirstChallenge,
 			IDayThreeSecondChallenge dayThreeSecondChallenge, IDayFourFirstChallenge dayFourFirstChallenge,
 			IDayFourSecondChallenge dayFourSecondChallenge, IDayFiveFirstChallenge dayFiveFirstChallenge,
+			IDayFiveSecondChallenge dayFiveSecondChallenge,
 			ILogger logger)
 		{
 			_userInputProvider = userInputProvider;
@@ -40,6 +42,7 @@
 			_dayFourFirstChallenge = dayFourFirstChallenge;
 			_dayFourSecondChallenge = dayFourSecondChallenge;
 			_dayFiveFirstChallenge = dayFiveFirstChallenge;
+			_dayFiveSecondChallenge = dayFiveSecondChallenge;
 			_logger = logger;
 		}
 
@@ -99,6 +102,12 @@
 					selectedPuzzleSolution.Challenge == Challenge.First:
 				{
 					await _dayFiveFirstChallenge.SolvePuzzle();
+					break;
+				}
+				case Days.DayFive when
+					selectedPuzzleSolution.Challenge == Challenge.Second:
+				{
+					await _dayFiveSecondChallenge.SolvePuzzle();
 					break;
 				}
 				default:
